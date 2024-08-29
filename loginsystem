@@ -1,0 +1,121 @@
+/*
+SQLyog Community v13.2.1 (64 bit)
+MySQL - 9.0.0 : Database - loginsystem
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`loginsystem` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `loginsystem`;
+
+/*Table structure for table `doctorapp` */
+
+DROP TABLE IF EXISTS `doctorapp`;
+
+CREATE TABLE `doctorapp` (
+  `fname` varchar(40) NOT NULL,
+  `lname` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `contact` varchar(40) NOT NULL,
+  `docapp` varchar(60) NOT NULL,
+  PRIMARY KEY (`contact`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `doctorapp` */
+
+insert  into `doctorapp`(`fname`,`lname`,`email`,`contact`,`docapp`) values 
+('Sakshi','kumar','kumar@gmail.com','201','101'),
+('Grisha','kumar','kumar121@gmail.com','202','102'),
+('Shreya','raj','raj1242gmail.com','203','101'),
+('Suhani','kumar','raman@gmail.com','204','103'),
+('Rajvi','thakur','thakur@gmail.com','205','103'),
+('Komal','kumar','rahul@gmail.com','206','102'),
+('Yashvi','Verma','verma12@gmail.com','207','103'),
+('test','user','testuser@gmail.com','208','101');
+
+/*Table structure for table `logintb` */
+
+DROP TABLE IF EXISTS `logintb`;
+
+CREATE TABLE `logintb` (
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `logintb` */
+
+insert  into `logintb`(`username`,`password`) values 
+('admin','Admin@123');
+
+/*Table structure for table `package` */
+
+DROP TABLE IF EXISTS `package`;
+
+CREATE TABLE `package` (
+  `Package_id` varchar(40) NOT NULL,
+  `Package_name` varchar(40) NOT NULL,
+  `Amount` int NOT NULL,
+  PRIMARY KEY (`Package_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `package` */
+
+insert  into `package`(`Package_id`,`Package_name`,`Amount`) values 
+('121','preliminary',800),
+('122','Wt. gain',1500),
+('123','Wt.loss',1000);
+
+/*Table structure for table `payment` */
+
+DROP TABLE IF EXISTS `payment`;
+
+CREATE TABLE `payment` (
+  `Payment_id` int NOT NULL,
+  `Amount` int NOT NULL,
+  `customer_id` varchar(20) NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
+  `customer_name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Payment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `payment` */
+
+insert  into `payment`(`Payment_id`,`Amount`,`customer_id`,`payment_type`,`customer_name`) values 
+(102,800,'205','credit card','user'),
+(301,1500,'201','cash','Sakshi'),
+(302,800,'202','card','Grisha'),
+(303,1000,'203','cheque','Shreya'),
+(304,1500,'204','cash',NULL);
+
+/*Table structure for table `trainer` */
+
+DROP TABLE IF EXISTS `trainer`;
+
+CREATE TABLE `trainer` (
+  `Trainer_id` int NOT NULL,
+  `Name` varchar(40) NOT NULL,
+  `phone` int NOT NULL,
+  PRIMARY KEY (`Trainer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `trainer` */
+
+insert  into `trainer`(`Trainer_id`,`Name`,`phone`) values 
+(101,'Rakesh',12365489),
+(102,'Ravi',21365789),
+(103,'wasim',123564789),
+(104,'Sameer',12536987),
+(105,'Jass',1234567890);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
